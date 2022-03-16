@@ -1,0 +1,33 @@
+<div class="container mt-5">
+
+  <!-- deletemessage -->
+  <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{successmsg}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let us of readData'>
+            <th scope="row">{{us.id}}</th>
+            <td>{{us.fullname}}</td>
+            <td>{{us.email}}</td>
+            <td>{{us.mobile}}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="deleteID(us.id)" >Deletar</button>
+              &nbsp;
+              <a [routerLink]="['/create',us.id]" class="btn btn-sm btn-primary">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
